@@ -16,8 +16,8 @@ public class StartActivity extends AppCompatActivity {
 
     private Button btnGallery, btnPrecap;                        //Declaring btnStart as an instance of Button
     public final String FILE_TAG = "Img did not save";
-    String albumName;
-    File picDirectory;
+//    String albumName;
+//    File picDirectory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +31,8 @@ public class StartActivity extends AppCompatActivity {
             public void onClick(View view){
                 Intent intent = new Intent(StartActivity.this,   //On click, a new
                         GalleryActivity.class);
-                picDirectory = (File) getIntent().getExtras().get("picDirectory");// activity is open
-                intent.putExtra("picDirectory", picDirectory);// activity is open
+//                picDirectory = (File) getIntent().getExtras().get("picDirectory");// activity is open
+//                intent.putExtra("picDirectory", picDirectory);// activity is open
                 startActivity(intent);
             }
         });
@@ -44,24 +44,24 @@ public class StartActivity extends AppCompatActivity {
                 Intent intent = new Intent(StartActivity.this,   //On click, a new
                         PrecaptureActivity.class);                                 // activity is open
 
-                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                albumName = "SESSION_" + timeStamp + "_";
-                picDirectory = makePrivateAlbumStorageDir(albumName);
-
-                intent.putExtra("picDirectory", picDirectory);
+//                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//                albumName = "SESSION_" + timeStamp + "_";
+//                picDirectory = makePrivateAlbumStorageDir(albumName);
+//
+//                intent.putExtra("picDirectory", picDirectory);
                 startActivity(intent);
             }
         });
     }
 
-    public File makePrivateAlbumStorageDir(String albumName) {
-        File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), albumName);
-
-        if (!file.mkdirs()) {
-            Log.e(FILE_TAG, "Directory not created");
-        }
-
-        return file;
-    }
+//    public File makePrivateAlbumStorageDir(String albumName) {
+//        File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), albumName);
+//
+//        if (!file.mkdirs()) {
+//            Log.e(FILE_TAG, "Directory not created");
+//        }
+//
+//        return file;
+//    }
 
 }

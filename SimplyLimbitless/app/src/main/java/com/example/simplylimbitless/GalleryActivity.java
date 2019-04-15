@@ -34,7 +34,8 @@ public class GalleryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        picDirectory = (File) getIntent().getExtras().get("picDirectory");
+//        picDirectory = (File) getIntent().getExtras().get("picDirectory");
+        picDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
 
         // for storage permission
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {

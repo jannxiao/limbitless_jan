@@ -3,6 +3,7 @@ package com.example.simplylimbitless;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +25,7 @@ public class PrecaptureActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_precapture);
-        picDirectory = (File) getIntent().getExtras().get("picDirectory");
+//        picDirectory = (File) getIntent().getExtras().get("picDirectory");
 
         btnStart = findViewById(R.id.btn_to_quit);
         btnStart.setOnClickListener( new View.OnClickListener() {
@@ -32,7 +33,7 @@ public class PrecaptureActivity extends AppCompatActivity {
             public void onClick(View view){
                 Intent intent = new Intent(PrecaptureActivity.this,   //On click, a new
                         StartActivity.class);
-                intent.putExtra("picDirectory", picDirectory);// activity is open
+//                intent.putExtra("picDirectory", picDirectory);// activity is open
                 startActivity(intent);
             }
         });
@@ -79,7 +80,8 @@ public class PrecaptureActivity extends AppCompatActivity {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = picDirectory;
+//        File storageDir = picDirectory;
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
